@@ -74,14 +74,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void add(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO,employee);
-        employee.setStatus(1);
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+        employee.setStatus(StatusConstant.ENABLE);
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
 
         //创建的用户和更新的用户
-        Long empId = BaseContext.getCurrentId();
-        employee.setCreateUser(empId);
-        employee.setUpdateUser(empId);
+//        Long empId = BaseContext.getCurrentId();
+//        employee.setCreateUser(empId);
+//        employee.setUpdateUser(empId);
 
         employee.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
         employeeMapper.add(employee);
@@ -120,8 +120,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void update(EmployeeDTO employeeDTO) {
         Employee e = new Employee();
         BeanUtils.copyProperties(employeeDTO,e);
-        e.setUpdateTime(LocalDateTime.now());
-        e.setUpdateUser(BaseContext.getCurrentId());
+//        e.setUpdateTime(LocalDateTime.now());
+//        e.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(e);
     }
 
