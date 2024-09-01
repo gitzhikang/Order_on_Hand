@@ -48,11 +48,11 @@ sky:
 
   aws:
     s3:
-      accessKey: AKIARSU7LD7PH75ESONP
-      secretKey: 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
-      region: us-east-2
-      bucketName: sky-take-out-skkk
+      accessKey: ${sky.aws.s3.accessKey}
+      secretKey: ${sky.aws.s3.secretKey}
+      region: ${sky.aws.s3.region}
+      bucketName: ${sky.aws.s3.bucketName}
   wechat:
-    appid: wx11b1a75dad0316c0
-    secret: 1e78de356be09bd891ef31308d51af36
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
 
